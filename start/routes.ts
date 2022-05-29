@@ -23,6 +23,7 @@ import Route from "@ioc:Adonis/Core/Route";
 Route.group(() => {
   Route.resource("/user", "UsersController").apiOnly();
   Route.resource("/product", "ProductsController").apiOnly();
+  Route.resource("/category", "CategoriesController").apiOnly();
 
   //Sales routes
   Route.post("/user/:userId/sale/cad", "SalesController.store");
