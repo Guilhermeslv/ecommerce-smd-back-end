@@ -18,8 +18,15 @@
 |
 */
 
-import Route from '@ioc:Adonis/Core/Route'
+import Route from "@ioc:Adonis/Core/Route";
 
 Route.group(() => {
-  Route.resource('/user', 'UsersController').apiOnly()  
-}).prefix('/api')
+  Route.resource("/user", "UsersController").apiOnly();
+  Route.resource("/product", "ProductsController").apiOnly();
+
+  //Sales routes
+  Route.post("/user/:userId/sale/cad", "SalesController.store");
+  Route.get("/user/:userId/sale/get", "SalesController.show");
+
+  Route.get("/sale", "SalesController.index");
+}).prefix("/api");

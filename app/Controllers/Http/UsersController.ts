@@ -6,7 +6,7 @@ export default class UsersController {
 
     public async index() {
 
-        const user = await User.all()
+        const user = await User.query().preload("sales")
 
         return {
             data: user,
